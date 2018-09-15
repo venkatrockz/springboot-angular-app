@@ -1,0 +1,132 @@
+<ol class="breadcrumb">
+    <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+    <li class="active">operations</li>
+</ol>
+
+<!--<div class="row">
+    <h4 style="color:#B80D57;">{{actionName}}</h4>
+    <div class="white-background" style="padding:20px;">
+        <form name="storyForm" ng-submit="submit()" method="POST">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name</label>
+                        <input value="" name="name" id="name" type="text" ng-model="operation.name" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="coreContainer">Core Container</label>
+                        <textarea ng-maxlength="200" class="form-control" name="coreContainer" id="coreContainer" ng-model="operation.coreContainer"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="mainframeOperation">Mainframe Operation</label>
+                        <input value="" name="mainframeOperation" id="mainframeOperation" type="text" ng-model="operation.mainframeOperation" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="url">Url</label>
+                        <textarea ng-maxlength="200" class="form-control" name="url" id="url" ng-model="operation.url"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <input class="btn btn-success btn-sm" type="submit" id="submit" value="{{submitButtonLabel}}" />
+                        <a ng-if="currentOperation.id" ng-click="delete(currentOperation.id)" class="btn btn-danger btn-sm">Delete</a>
+                        <a ng-if="currentOperation.id" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>-->
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div data-ng-controller="CoreOperationsController">
+<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{actionName}}</h4>
+            </div>
+            <div class="modal-body">
+                <form name="storyForm" ng-submit="submit()" method="POST">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Name</label>
+                                <input value="" name="name" id="name" type="text" ng-model="operation.name" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="coreContainer">Core Container</label>
+                                <textarea ng-maxlength="200" class="form-control" name="coreContainer" id="coreContainer" ng-model="operation.coreContainer"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="mainframeOperation">Mainframe Operation</label>
+                                <input value="" name="mainframeOperation" id="mainframeOperation" type="text" ng-model="operation.mainframeOperation" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="url">Url</label>
+                                <textarea ng-maxlength="200" class="form-control" name="url" id="url" ng-model="operation.url"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <input class="btn btn-success btn-sm" type="submit" id="submit" value="{{submitButtonLabel}}" />
+                                <a ng-if="currentOperation.id" ng-click="delete(currentOperation.id)" class="btn btn-danger btn-sm">Delete</a>
+                                <a ng-if="currentOperation.id" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+        <h4>Core Operations</h4>
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+        Add new operation
+    </button>
+    <br><br>
+        <div class="white-background" style="padding:15px;">
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Container</th>
+                    <th>Mainframe Operation</th>
+                    <th>Url</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="operation in operations" ng-class="(operation.id == currentOperation.id) ? 'warning' : ''">
+                    <td>{{operation.id}}</td>
+                    <td width="25%"><a ng-href="#/coreoperation/{{operation.id}}">{{ operation.name }}</a></td>
+                    <td width="25%">{{ operation.coreContainer }}</a></td>
+                    <td width="25%">{{ operation.mainframeOperation }}</a></td>
+                    <td width="25%">{{ operation.url }}</a></td>
+                    <td width="5%" style="text-align:center;">
+                        <a class="btn btn-xs btn-success" ng-click="selectOperation(operation)"><i class="fa fa-pencil-square-o "></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+</div>

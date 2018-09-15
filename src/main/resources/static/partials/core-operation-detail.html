@@ -1,0 +1,41 @@
+<div data-ng-controller="CoreOperationsController">
+	<ol class="breadcrumb">
+	  <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+	  <li><a href="#/story">Stories</a></li>
+	  <li class="active">{{detailOperation.name }}</li>
+	</ol>
+
+	<div stype="margin:20px;">
+	  <div class="col-md-7 white-background">
+	    <h3>{{detailOperation.name}}</h3>
+	    <p>{{detailOperation.coreContainer}}</p>
+	  </div>
+	  
+	  <div class="col-md-1">&nbsp;</div>
+	  <div class="col-md-4 white-background">
+      <div class="row">
+        <table class="table">
+          <tr>
+            <td>Name</td>
+            <td>{{ detailOperation.name }}</td>
+          </tr>
+            <tr>
+                <td>Core Operation</td>
+                <td>{{ detailOperation.coreContainer }}</td>
+            </tr>
+            <tr>
+                <td>Mainframe Operation</td>
+                <td>{{ detailOperation.mainframeOperation }}</td>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td>{{ detailOperation.url }}</td>
+            </tr>
+
+        </table>
+        
+      </div>
+      
+	  </div>
+	</div>
+</div>
